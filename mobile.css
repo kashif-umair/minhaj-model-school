@@ -288,25 +288,49 @@
     display: none;
   }
 
+  /* The wrapper only owns visibility. The panel itself owns scrolling. */
   .modal {
     display: block;
-    padding: 0;
-  }
-
-  .modal-panel {
     width: 100%;
     height: 100dvh;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .modal-backdrop {
+    position: fixed;
+  }
+
+  .modal-panel,
+  .modal.is-open .modal-panel {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    min-height: 0;
+    height: 100dvh;
     max-height: none;
+    overflow-x: hidden;
+    overflow-y: auto;
     border-radius: 0;
-    overscroll-behavior: contain;
+    transform: none;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
   }
 
   .modal-close {
     position: fixed;
     top: max(12px, env(safe-area-inset-top));
     right: 12px;
-    width: 44px;
-    height: 44px;
+    width: auto;
+    height: auto;
+    padding: 8px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    font-size: 38px;
+    font-weight: 900;
+    touch-action: manipulation;
   }
 
   html[dir="rtl"] .modal-close {
@@ -333,12 +357,16 @@
     font-size: clamp(2rem, 10vw, 2.8rem);
   }
 
+  .modal-title-block .modal-label {
+    display: none;
+  }
+
   .modal-title-block p {
     font-size: 14px;
   }
 
   .modal-body {
-    padding: 22px 18px calc(30px + env(safe-area-inset-bottom));
+    padding: 22px 18px calc(48px + env(safe-area-inset-bottom));
   }
 
   .profile-facts {

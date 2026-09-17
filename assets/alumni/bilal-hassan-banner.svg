@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" role="presentation" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#69704f"/>
+      <stop offset="1" stop-color="#383c2d"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="42%" r="58%">
+      <stop offset="0" stop-color="#e7d9b9" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#e7d9b9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="portrait" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d8ceb8"/>
+      <stop offset="1" stop-color="#b4aa91"/>
+    </linearGradient>
+    <linearGradient id="bottomShade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#22251b" stop-opacity="0"/>
+      <stop offset=".62" stop-color="#22251b" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#22251b" stop-opacity=".73"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="800" fill="url(#bg)"/>
+  <circle cx="1000" cy="322" r="360" fill="url(#halo)"/>
+  <g fill="none" stroke="#eee1bf" stroke-opacity=".1" stroke-width="3">
+    <path d="M-45 550C180 440 325 505 520 405s360-125 535-35 275 78 385 18"/>
+    <path d="M-25 620C205 510 370 575 565 475s350-105 520-18 255 76 350 36"/>
+  </g>
+  <g transform="translate(815 110)">
+    <ellipse cx="193" cy="215" rx="121" ry="138" fill="url(#portrait)"/>
+    <path d="M78 210c12-108 56-168 117-168 65 0 108 62 113 168-30-37-69-58-114-58-44 0-83 20-116 58Z" fill="#454b36"/>
+    <path d="M163 342h62v71h-62z" fill="#c2b79d"/>
+    <path d="M-8 647c22-145 101-236 201-236s179 91 201 236Z" fill="#d6ccb5"/>
+    <path d="M30 647c18-111 80-182 163-182 84 0 146 71 163 182Z" fill="#555c42"/>
+    <path d="M139 471l54 83 54-83" fill="none" stroke="#d6ccb5" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g fill="#eee1bf" fill-opacity=".07">
+    <circle cx="122" cy="122" r="58"/>
+    <circle cx="204" cy="94" r="24"/>
+    <circle cx="74" cy="190" r="18"/>
+  </g>
+  <rect width="1400" height="800" fill="url(#bottomShade)"/>
+</svg>

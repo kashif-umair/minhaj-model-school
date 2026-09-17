@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" role="presentation" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d646b"/>
+      <stop offset="1" stop-color="#07363d"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="42%" r="58%">
+      <stop offset="0" stop-color="#d9cda7" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#d9cda7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="portrait" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9d0b8"/>
+      <stop offset="1" stop-color="#b8ad91"/>
+    </linearGradient>
+    <linearGradient id="bottomShade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#031d22" stop-opacity="0"/>
+      <stop offset=".62" stop-color="#031d22" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#031d22" stop-opacity=".72"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="800" fill="url(#bg)"/>
+  <circle cx="980" cy="325" r="360" fill="url(#halo)"/>
+  <g fill="none" stroke="#efe4c7" stroke-opacity=".12" stroke-width="3">
+    <path d="M-40 560C180 430 330 515 520 408S850 280 1040 365s305 70 430-15"/>
+    <path d="M-25 625C210 500 355 590 555 470s360-115 535-18 275 75 380 30"/>
+  </g>
+  <g transform="translate(815 118)">
+    <ellipse cx="195" cy="210" rx="122" ry="138" fill="url(#portrait)"/>
+    <path d="M98 199c10-103 52-163 101-163 69 0 113 59 116 164-27-34-68-55-111-55-42 0-79 18-106 54Z" fill="#193f43"/>
+    <path d="M165 334h63v72h-63z" fill="#c5baa0"/>
+    <path d="M-5 645c21-144 99-235 200-235s179 91 200 235Z" fill="#d6cdb5"/>
+    <path d="M31 645c17-110 78-181 164-181s147 71 164 181Z" fill="#234f52"/>
+    <path d="M141 469l54 82 54-82" fill="none" stroke="#d6cdb5" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <circle cx="120" cy="135" r="78" fill="none" stroke="#f0e3bd" stroke-opacity=".14" stroke-width="2"/>
+  <circle cx="120" cy="135" r="46" fill="#f0e3bd" fill-opacity=".08"/>
+  <rect width="1400" height="800" fill="url(#bottomShade)"/>
+</svg>

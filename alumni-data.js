@@ -2,28 +2,28 @@ window.MINHAJ_ALUMNI = [
   {
     id: "ahmad-raza",
     years: "1994 – 1999",
-    headshot: "https://placehold.co/600x600/e2ebe7/17443f?text=Ahmad+Raza",
-    banner: "https://placehold.co/1400x800/315f58/f8f5ec?text=Ahmad+Raza+Banner",
+    headshot: "assets/alumni/ahmad-raza-headshot.svg",
+    banner: "assets/alumni/ahmad-raza-banner.svg",
     en: {
       name: "Ahmad Raza",
       designation: "Senior Software Engineer",
       company: "Northstar Technologies",
       summary: "A technology professional working on large-scale digital products and engineering teams.",
-      description: "Ahmad built his career in software engineering after completing his later education in computer science. He has worked across product development, engineering leadership and large-scale web systems, and continues to value the strong learning habits formed during his early school years."
+      description: "Ahmad built his career in software engineering after completing his later education in computer science. He has worked across product development, engineering leadership and large-scale web systems, and continues to value the strong learning habits formed during his early school years. Over time, his work has involved collaborating with designers, product managers and engineers to solve complex technical problems, improve reliability and build software used by large numbers of people. He has also supported younger engineers, contributed to technical decision-making and helped teams develop stronger ways of working together. Beyond the technical side of his career, Ahmad remains interested in how education, curiosity and disciplined problem-solving shape long-term growth. He often reflects on how the confidence to ask questions, learn independently and keep improving was formed much earlier than university or professional life. Those early experiences continue to influence how he approaches new challenges, works with others and thinks about the kind of impact technology can have on people and communities."
     },
     ur: {
       name: "احمد رضا",
       designation: "سینئر سافٹ ویئر انجینئر",
       company: "نارتھ اسٹار ٹیکنالوجیز",
       summary: "ایک ٹیکنالوجی پروفیشنل جو بڑے ڈیجیٹل پروڈکٹس اور انجینئرنگ ٹیموں کے ساتھ کام کر رہے ہیں۔",
-      description: "احمد نے کمپیوٹر سائنس میں اعلیٰ تعلیم کے بعد سافٹ ویئر انجینئرنگ میں اپنا کیریئر بنایا۔ انہوں نے پروڈکٹ ڈویلپمنٹ، انجینئرنگ لیڈرشپ اور بڑے ویب سسٹمز پر کام کیا ہے، اور وہ آج بھی اپنے ابتدائی اسکولی برسوں میں پیدا ہونے والی مضبوط تعلیمی عادات کو اہم سمجھتے ہیں۔"
+      description: "احمد نے کمپیوٹر سائنس میں اعلیٰ تعلیم کے بعد سافٹ ویئر انجینئرنگ میں اپنا کیریئر بنایا۔ انہوں نے پروڈکٹ ڈویلپمنٹ، انجینئرنگ لیڈرشپ اور بڑے ویب سسٹمز پر کام کیا ہے، اور وہ آج بھی اپنے ابتدائی اسکولی برسوں میں پیدا ہونے والی مضبوط تعلیمی عادات کو اہم سمجھتے ہیں۔ وقت کے ساتھ ان کے کام میں ڈیزائنرز، پروڈکٹ مینیجرز اور انجینئرز کے ساتھ مل کر پیچیدہ تکنیکی مسائل حل کرنا، سسٹمز کی قابلِ اعتماد کارکردگی بہتر بنانا اور ایسے سافٹ ویئر تیار کرنا شامل رہا ہے جنہیں بڑی تعداد میں لوگ استعمال کرتے ہیں۔ انہوں نے نوجوان انجینئرز کی رہنمائی بھی کی، اہم تکنیکی فیصلوں میں حصہ لیا اور ٹیموں کو بہتر انداز میں مل کر کام کرنے کے طریقے اپنانے میں مدد دی۔ اپنے پیشہ ورانہ سفر کے دوران احمد کی دلچسپی صرف ٹیکنالوجی تک محدود نہیں رہی بلکہ وہ اس بات کو بھی اہم سمجھتے ہیں کہ تعلیم، تجسس اور منظم انداز میں مسائل حل کرنے کی عادت انسان کی طویل مدتی ترقی پر کس طرح اثر انداز ہوتی ہے۔ وہ اکثر اس بات پر غور کرتے ہیں کہ سوال پوچھنے، خود سیکھنے اور مسلسل بہتری کی کوشش کرنے کا اعتماد یونیورسٹی یا پیشہ ورانہ زندگی سے بہت پہلے پیدا ہو جاتا ہے۔ ان کے نزدیک ابتدائی اسکولی تجربات آج بھی نئے چیلنجز سے نمٹنے، دوسروں کے ساتھ کام کرنے اور ٹیکنالوجی کے ذریعے لوگوں اور کمیونٹیز پر مثبت اثر ڈالنے کے انداز کو تشکیل دیتے ہیں۔"
     }
   },
   {
     id: "sara-khan",
     years: "1993 – 1998",
-    headshot: "https://placehold.co/600x600/efe5dc/654a35?text=Sara+Khan",
-    banner: "https://placehold.co/1400x800/7a604b/fffaf2?text=Sara+Khan+Banner",
+    headshot: "assets/alumni/sara-khan-headshot.svg",
+    banner: "assets/alumni/sara-khan-banner.svg",
     en: {
       name: "Sara Khan",
       designation: "Consultant Physician",
@@ -42,8 +42,8 @@ window.MINHAJ_ALUMNI = [
   {
     id: "usman-ali",
     years: "1995 – 2000",
-    headshot: "https://placehold.co/600x600/dde4ee/2f4968?text=Usman+Ali",
-    banner: "https://placehold.co/1400x800/3d5876/f5f8fc?text=Usman+Ali+Banner",
+    headshot: "assets/alumni/usman-ali-headshot.svg",
+    banner: "assets/alumni/usman-ali-banner.svg",
     en: {
       name: "Usman Ali",
       designation: "Director of Operations",
@@ -62,8 +62,8 @@ window.MINHAJ_ALUMNI = [
   {
     id: "aisha-mahmood",
     years: "1996 – 2001",
-    headshot: "https://placehold.co/600x600/e9e1ef/5d3f6d?text=Aisha+Mahmood",
-    banner: "https://placehold.co/1400x800/674c76/fbf7fd?text=Aisha+Mahmood+Banner",
+    headshot: "assets/alumni/aisha-mahmood-headshot.svg",
+    banner: "assets/alumni/aisha-mahmood-banner.svg",
     en: {
       name: "Aisha Mahmood",
       designation: "Education Program Lead",
@@ -82,8 +82,8 @@ window.MINHAJ_ALUMNI = [
   {
     id: "bilal-hassan",
     years: "1992 – 1997",
-    headshot: "https://placehold.co/600x600/e6e7dc/53543d?text=Bilal+Hassan",
-    banner: "https://placehold.co/1400x800/5e6147/fffdf4?text=Bilal+Hassan+Banner",
+    headshot: "assets/alumni/bilal-hassan-headshot.svg",
+    banner: "assets/alumni/bilal-hassan-banner.svg",
     en: {
       name: "Bilal Hassan",
       designation: "Entrepreneur & Managing Director",

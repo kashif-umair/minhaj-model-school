@@ -123,6 +123,38 @@ html[dir="rtl"] .modal-body {
   text-align: right;
 }
 
+/* Keep the profile hero clean: name + role only. */
+.modal-title-block .modal-label {
+  display: none;
+}
+
+/* A simple, prominent close glyph reads better than a floating circular button. */
+.modal-close {
+  width: auto;
+  height: auto;
+  padding: 8px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--white);
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  backdrop-filter: none;
+}
+
+.modal-close:hover,
+.modal-close:focus-visible {
+  background: transparent;
+}
+
+.modal-close:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 2px;
+}
+
 @media (max-width: 767px) {
   .language-switcher {
     width: 100%;
@@ -136,6 +168,27 @@ html[dir="rtl"] .modal-body {
   html[lang="ur"] body {
     font-size: 17px;
     line-height: 1.95;
+  }
+
+  /* Gulzar has tall Nastaliq ascenders/descenders. Give the mobile header
+     enough vertical room and do not clip the school name's glyphs. */
+  html[lang="ur"] .nav-wrap {
+    min-height: 86px;
+  }
+
+  html[lang="ur"] .brand-text {
+    overflow: visible;
+    line-height: 1;
+  }
+
+  html[lang="ur"] .brand-text strong {
+    max-width: 210px;
+    overflow: visible;
+    padding-block: 6px 3px;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    text-overflow: clip;
+    white-space: nowrap;
   }
 
   html[lang="ur"] .hero h1,
@@ -164,5 +217,12 @@ html[dir="rtl"] .modal-body {
   html[lang="ur"] .legacy-content p:not(.section-kicker),
   html[lang="ur"] .footer-wrap p {
     line-height: 2.05;
+  }
+
+  .modal-close {
+    width: auto;
+    height: auto;
+    padding: 8px;
+    font-size: 38px;
   }
 }
