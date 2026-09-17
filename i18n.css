@@ -123,6 +123,38 @@ html[dir="rtl"] .modal-body {
   text-align: right;
 }
 
+/* Keep the profile hero clean: name + role only. */
+.modal-title-block .modal-label {
+  display: none;
+}
+
+/* A simple, prominent close glyph reads better than a floating circular button. */
+.modal-close {
+  width: auto;
+  height: auto;
+  padding: 8px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--white);
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  backdrop-filter: none;
+}
+
+.modal-close:hover,
+.modal-close:focus-visible {
+  background: transparent;
+}
+
+.modal-close:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 2px;
+}
+
 @media (max-width: 767px) {
   .language-switcher {
     width: 100%;
@@ -185,5 +217,31 @@ html[dir="rtl"] .modal-body {
   html[lang="ur"] .legacy-content p:not(.section-kicker),
   html[lang="ur"] .footer-wrap p {
     line-height: 2.05;
+  }
+
+  /* Scroll the fixed modal viewport itself. This is more reliable on mobile
+     browsers than scrolling a full-height child panel. */
+  .modal {
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .modal-backdrop {
+    position: fixed;
+  }
+
+  .modal-panel {
+    min-height: 100dvh;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .modal-close {
+    width: auto;
+    height: auto;
+    padding: 8px;
+    font-size: 38px;
   }
 }
