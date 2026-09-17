@@ -288,16 +288,13 @@
     display: none;
   }
 
+  /* The wrapper only owns visibility. The panel itself owns scrolling. */
   .modal {
     display: block;
     width: 100%;
     height: 100dvh;
     padding: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-y;
+    overflow: hidden;
   }
 
   .modal-backdrop {
@@ -306,14 +303,19 @@
 
   .modal-panel,
   .modal.is-open .modal-panel {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    min-height: 100dvh;
-    height: auto;
+    min-height: 0;
+    height: 100dvh;
     max-height: none;
-    overflow: visible;
+    overflow-x: hidden;
+    overflow-y: auto;
     border-radius: 0;
     transform: none;
-    overscroll-behavior: auto;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
   }
 
   .modal-close {
