@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" role="img" aria-labelledby="title desc">
+  <title id="title">Learning around the world illustration</title>
+  <desc id="desc">Decorative education illustration with a globe, graduation cap, stars and stationery.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef5f1"/>
+      <stop offset="1" stop-color="#e8dfc6"/>
+    </linearGradient>
+    <linearGradient id="globe" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2b8d80"/>
+      <stop offset="1" stop-color="#0b4f4a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1100" fill="url(#bg)"/>
+  <circle cx="290" cy="180" r="330" fill="#d3a64c" opacity=".11"/>
+  <circle cx="1375" cy="890" r="360" fill="#0f766e" opacity=".10"/>
+
+  <g transform="translate(320 230)">
+    <circle cx="480" cy="360" r="300" fill="url(#globe)"/>
+    <ellipse cx="480" cy="360" rx="155" ry="300" fill="none" stroke="#bfe0d5" stroke-width="13" opacity=".75"/>
+    <path d="M185 360h590M225 245c165 64 345 64 510 0M225 475c165-64 345-64 510 0" fill="none" stroke="#bfe0d5" stroke-width="13" stroke-linecap="round" opacity=".75"/>
+    <path d="M375 170c35-34 83-52 126-38 35 11 55 35 88 37 27 2 45-11 70-8 40 5 74 40 78 81-36 11-69 7-97-11-29-19-47-47-83-42-23 3-42 20-65 22-43 4-88-13-117-41z" fill="#d8c16a" opacity=".92"/>
+    <path d="M335 410c38-28 88-30 127-5 29 19 50 48 85 54 31 5 63-10 94 0 41 13 66 56 62 99-42 8-78-2-108-28-30-27-50-60-91-58-24 1-46 16-71 15-43-2-84-29-98-77z" fill="#e6cf7a" opacity=".92"/>
+  </g>
+
+  <g transform="translate(1035 145) rotate(8)">
+    <path d="M0 130l245-110 245 110-245 110z" fill="#0b4f4a"/>
+    <path d="M95 185v105c84 54 216 54 300 0V185" fill="#174f49"/>
+    <path d="M490 130v160" stroke="#d3a64c" stroke-width="16" stroke-linecap="round"/>
+    <circle cx="490" cy="316" r="25" fill="#d3a64c"/>
+  </g>
+
+  <g transform="translate(1120 690) rotate(-12)">
+    <rect x="0" y="0" width="360" height="60" rx="18" fill="#d3a64c"/>
+    <rect x="0" y="75" width="310" height="60" rx="18" fill="#0f766e"/>
+    <rect x="0" y="150" width="335" height="60" rx="18" fill="#ffffff" stroke="#96afa8" stroke-width="5"/>
+  </g>
+
+  <g transform="translate(160 710)">
+    <path d="M0 260l112-260 112 260z" fill="#d3a64c"/>
+    <circle cx="112" cy="75" r="45" fill="#f2d089"/>
+    <rect x="90" y="250" width="44" height="160" rx="18" fill="#0b4f4a"/>
+  </g>
+
+  <g fill="#d3a64c">
+    <path d="M170 310l16 34 37 5-27 26 7 37-33-17-33 17 7-37-27-26 37-5z"/>
+    <path d="M1370 430l14 29 32 5-23 22 5 32-28-15-29 15 6-32-24-22 33-5z"/>
+  </g>
+  <g fill="#0f766e" opacity=".28">
+    <circle cx="200" cy="520" r="16"/><circle cx="1450" cy="245" r="18"/><circle cx="1320" cy="555" r="10"/>
+  </g>
+</svg>

@@ -39,6 +39,19 @@ document.querySelectorAll("[data-current-year]").forEach((node) => {
   node.textContent = new Date().getFullYear();
 });
 
+const heroSlider = document.querySelector("[data-hero-slider]");
+const heroSlides = heroSlider ? Array.from(heroSlider.querySelectorAll("[data-hero-slide]")) : [];
+
+if (heroSlides.length > 1) {
+  let activeSlideIndex = 0;
+
+  window.setInterval(() => {
+    heroSlides[activeSlideIndex].classList.remove("is-active");
+    activeSlideIndex = (activeSlideIndex + 1) % heroSlides.length;
+    heroSlides[activeSlideIndex].classList.add("is-active");
+  }, 5000);
+}
+
 const alumniList = document.querySelector("#alumni-list");
 const modal = document.querySelector("#alumni-modal");
 const modalPanel = modal?.querySelector(".modal-panel");

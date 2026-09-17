@@ -14,6 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="../i18n.css">
+  <link rel="stylesheet" href="../home.css">
 </head>
 <body>
   <header class="site-header">
@@ -43,15 +44,26 @@
 
   <main>
     <section class="hero">
-      <div class="hero-media" role="img" aria-label="منہاج ماڈل اسکول کے کیمپس کی نمونہ تصویر"></div>
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <p class="eyebrow">منہاج ماڈل اسکول</p>
-        <h1>جہاں مضبوط بنیادیں روشن مستقبل کی راہ بناتی ہیں۔</h1>
-        <p class="hero-copy">تعلیم، اعتماد، تجسس اور کردار پر قائم ایک اسکولی برادری۔</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="alumni.html">ہمارے سابق طلبہ سے ملیے</a>
-          <a class="button button-ghost" href="#our-story">ہماری کہانی جانیے</a>
+      <div class="hero-shell">
+        <div class="hero-copy-panel">
+          <p class="hero-school-name">منہاج ماڈل اسکول</p>
+          <h1>جہاں مضبوط بنیادیں روشن مستقبل کی راہ بناتی ہیں۔</h1>
+          <p class="hero-copy">تعلیم، اعتماد، تجسس اور کردار پر قائم ایک اسکولی برادری۔</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="alumni.html">ہمارے سابق طلبہ سے ملیے</a>
+            <a class="button button-ghost" href="#our-story">ہماری کہانی جانیے</a>
+          </div>
+        </div>
+        <div class="hero-slider" data-hero-slider aria-hidden="true">
+          <div class="hero-slide is-active" data-hero-slide>
+            <img src="../assets/education-book.svg" alt="">
+          </div>
+          <div class="hero-slide" data-hero-slide>
+            <img src="../assets/education-school.svg" alt="">
+          </div>
+          <div class="hero-slide" data-hero-slide>
+            <img src="../assets/education-world.svg" alt="">
+          </div>
         </div>
       </div>
     </section>
