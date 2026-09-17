@@ -1,5 +1,7 @@
 const language = document.documentElement.lang === "ur" ? "ur" : "en";
 const alumni = window.MINHAJ_ALUMNI || [];
+const ALUMNI_QUERY_PARAM = "alumni";
+const ALUMNI_HISTORY_STATE_KEY = "minhajAlumniProfile";
 
 const labels = {
   en: {
@@ -80,6 +82,22 @@ function alumniCardTemplate(person) {
   `;
 }
 
+function currentAlumniId() {
+  return new URL(window.location.href).searchParams.get(ALUMNI_QUERY_PARAM);
+}
+
+function alumniProfileUrl(id) {
+  const url = new URL(window.location.href);
+  url.searchParams.set(ALUMNI_QUERY_PARAM, id);
+  return `${url.pathname}${url.search}${url.hash}`;
+}
+
+function alumniListUrl() {
+  const url = new URL(window.location.href);
+  url.searchParams.delete(ALUMNI_QUERY_PARAM);
+  return `${url.pathname}${url.search}${url.hash}`;
+}
+
 if (alumniList) {
   alumniList.innerHTML = alumni.map(alumniCardTemplate).join("");
 
@@ -92,11 +110,11 @@ if (alumniList) {
   });
 }
 
-function openAlumniModal(person, trigger) {
+function openAlumniModal(person, trigger = null, { updateHistory = true, focusClose = true } = {}) {
   if (!modal) return;
 
   const translated = translatedPerson(person);
-  lastFocusedElement = trigger;
+  if (trigger) lastFocusedElement = trigger;
 
   const banner = modal.querySelector("#modal-banner");
   banner.src = person.banner;
@@ -109,16 +127,27 @@ function openAlumniModal(person, trigger) {
   modal.querySelector("#modal-years").textContent = person.years;
   modal.querySelector("#modal-description").textContent = translated.description;
 
+  if (updateHistory && currentAlumniId() !== person.id) {
+    const currentState = history.state && typeof history.state === "object" ? history.state : {};
+    history.pushState(
+      { ...currentState, [ALUMNI_HISTORY_STATE_KEY]: true, alumniId: person.id },
+      "",
+      alumniProfileUrl(person.id)
+    );
+  }
+
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
 
-  requestAnimationFrame(() => {
-    modal.querySelector(".modal-close")?.focus();
-  });
+  if (focusClose) {
+    requestAnimationFrame(() => {
+      modal.querySelector(".modal-close")?.focus();
+    });
+  }
 }
 
-function closeAlumniModal() {
+function hideAlumniModal() {
   if (!modal || !modal.classList.contains("is-open")) return;
 
   modal.classList.remove("is-open");
@@ -127,9 +156,51 @@ function closeAlumniModal() {
   lastFocusedElement?.focus();
 }
 
+function closeAlumniModal({ updateHistory = true } = {}) {
+  if (!modal || !modal.classList.contains("is-open")) return;
+
+  if (updateHistory && currentAlumniId()) {
+    if (history.state?.[ALUMNI_HISTORY_STATE_KEY]) {
+      history.back();
+      return;
+    }
+
+    history.replaceState(history.state, "", alumniListUrl());
+  }
+
+  hideAlumniModal();
+}
+
+function syncAlumniModalFromUrl() {
+  if (!alumniList || !modal) return;
+
+  const alumniId = currentAlumniId();
+
+  if (!alumniId) {
+    hideAlumniModal();
+    return;
+  }
+
+  const person = alumni.find((item) => item.id === alumniId);
+
+  if (!person) {
+    history.replaceState(history.state, "", alumniListUrl());
+    hideAlumniModal();
+    return;
+  }
+
+  openAlumniModal(person, null, { updateHistory: false, focusClose: false });
+}
+
 modal?.querySelectorAll("[data-close-modal]").forEach((element) => {
-  element.addEventListener("click", closeAlumniModal);
+  element.addEventListener("click", () => closeAlumniModal());
 });
+
+window.addEventListener("popstate", syncAlumniModalFromUrl);
+
+if (alumniList) {
+  syncAlumniModalFromUrl();
+}
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
