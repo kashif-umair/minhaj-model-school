@@ -26,16 +26,6 @@
     linear-gradient(145deg, #0b4f4a 0%, #0b403c 100%);
 }
 
-.hero-school-name {
-  margin: 0 0 28px;
-  color: #f6d995;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2rem, 3.2vw, 3.7rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-}
-
 .hero-copy-panel h1 {
   max-width: 700px;
   margin: 0;
@@ -94,21 +84,11 @@
   box-shadow: inset 20px 0 45px rgba(11, 79, 74, 0.08);
 }
 
-html[lang="ur"] .hero-school-name,
 html[lang="ur"] .hero-copy-panel h1 {
   font-family: "Gulzar", "Noto Nastaliq Urdu", "Noto Naskh Arabic", serif;
-  letter-spacing: 0;
-}
-
-html[lang="ur"] .hero-school-name {
-  font-size: clamp(2.6rem, 4vw, 4.5rem);
-  line-height: 1.55;
-  margin-bottom: 18px;
-}
-
-html[lang="ur"] .hero-copy-panel h1 {
   font-size: clamp(3rem, 4.9vw, 5.4rem);
   line-height: 1.65;
+  letter-spacing: 0;
 }
 
 html[lang="ur"] .hero-copy {
@@ -125,16 +105,19 @@ html[dir="rtl"] .hero-slider::after {
     min-height: 0;
   }
 
-  .hero-copy-panel {
+  /* On phones the visual slider is deliberately first so it is immediately visible. */
+  .hero-slider {
     order: 1;
-    min-height: 0;
-    justify-content: flex-start;
-    padding: 34px 20px 40px;
+    width: 100%;
+    min-height: 260px;
+    aspect-ratio: 16 / 10;
   }
 
-  .hero-school-name {
-    margin-bottom: 18px;
-    font-size: clamp(2.25rem, 10vw, 3.2rem);
+  .hero-copy-panel {
+    order: 2;
+    min-height: 0;
+    justify-content: flex-start;
+    padding: 30px 20px 40px;
   }
 
   .hero-copy-panel h1 {
@@ -158,20 +141,8 @@ html[dir="rtl"] .hero-slider::after {
     width: 100%;
   }
 
-  .hero-slider {
-    order: 2;
-    min-height: 0;
-    aspect-ratio: 4 / 3;
-  }
-
   .hero-slider::after {
-    box-shadow: inset 0 18px 38px rgba(11, 79, 74, 0.08);
-  }
-
-  html[lang="ur"] .hero-school-name {
-    margin-bottom: 12px;
-    font-size: clamp(2.7rem, 13vw, 4.1rem);
-    line-height: 1.45;
+    box-shadow: inset 0 -12px 28px rgba(11, 79, 74, 0.08);
   }
 
   html[lang="ur"] .hero-copy-panel h1 {
