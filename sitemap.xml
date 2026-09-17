@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://kashif-umair.github.io/minhaj-model-school/ur/</loc>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://kashif-umair.github.io/minhaj-model-school/ur/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kashif-umair.github.io/minhaj-model-school/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kashif-umair.github.io/minhaj-model-school/" />
+  </url>
+  <url>
+    <loc>https://kashif-umair.github.io/minhaj-model-school/en/</loc>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://kashif-umair.github.io/minhaj-model-school/ur/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kashif-umair.github.io/minhaj-model-school/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kashif-umair.github.io/minhaj-model-school/" />
+  </url>
+  <url>
+    <loc>https://kashif-umair.github.io/minhaj-model-school/ur/alumni.html</loc>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://kashif-umair.github.io/minhaj-model-school/ur/alumni.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kashif-umair.github.io/minhaj-model-school/en/alumni.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kashif-umair.github.io/minhaj-model-school/alumni.html" />
+  </url>
+  <url>
+    <loc>https://kashif-umair.github.io/minhaj-model-school/en/alumni.html</loc>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://kashif-umair.github.io/minhaj-model-school/ur/alumni.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kashif-umair.github.io/minhaj-model-school/en/alumni.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kashif-umair.github.io/minhaj-model-school/alumni.html" />
+  </url>
+</urlset>
