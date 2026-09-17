@@ -369,6 +369,14 @@
     padding: 22px 18px calc(48px + env(safe-area-inset-bottom));
   }
 
+  /* Ensure short profiles still have a little vertical travel on phones.
+     This also gives Urdu glyph descenders room away from the viewport edge. */
+  .modal-body::after {
+    content: "";
+    display: block;
+    height: 120px;
+  }
+
   .profile-facts {
     grid-template-columns: 1fr;
     gap: 10px;
