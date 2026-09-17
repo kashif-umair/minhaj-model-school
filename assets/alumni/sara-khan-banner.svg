@@ -1,1 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" role="img" aria-labelledby="title desc"><title id="title">Sara Khan alumni banner</title><desc id="desc">Warm brown and gold Minhaj Model School alumni poster with a generic profile illustration.</desc><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#755645"/><stop offset="1" stop-color="#3d2c27"/></linearGradient><linearGradient id="panel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b4b3c"/><stop offset="1" stop-color="#372722"/></linearGradient></defs><rect width="1400" height="800" fill="url(#bg)"/><circle cx="135" cy="120" r="74" fill="#f5e6bd"/><circle cx="135" cy="120" r="60" fill="#5a3f34"/><text x="135" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#f5e6bd">MMS</text><text x="700" y="118" text-anchor="middle" font-family="Georgia, serif" font-size="92" font-weight="700" fill="#f5e6bd" letter-spacing="8">ALUMNI</text><text x="700" y="176" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#f5e6bd" letter-spacing="3">MINHAJ MODEL SCHOOL</text><rect x="270" y="225" width="860" height="330" rx="8" fill="#d7d7d7"/><rect x="292" y="247" width="816" height="286" fill="url(#panel)"/><circle cx="700" cy="340" r="78" fill="#f5e6bd"/><path d="M525 505c28-100 94-150 175-150s147 50 175 150" fill="#f5e6bd"/><text x="700" y="468" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#5a3f34">PROUD ALUMNA</text><text x="700" y="640" text-anchor="middle" font-family="Arial, sans-serif" font-size="66" font-weight="800" fill="#f5e6bd">SARA KHAN</text><text x="700" y="698" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#f5e6bd">Consultant Physician · City Medical Centre</text><text x="700" y="752" text-anchor="middle" font-family="Georgia, serif" font-size="30" font-style="italic" fill="#ead8aa">Proud Alumni of Minhaj Model School</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" role="presentation" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7a5a49"/>
+      <stop offset="1" stop-color="#3b2b27"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="42%" r="58%">
+      <stop offset="0" stop-color="#ead6b3" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#ead6b3" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="portrait" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dbcbb3"/>
+      <stop offset="1" stop-color="#baa990"/>
+    </linearGradient>
+    <linearGradient id="bottomShade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#241815" stop-opacity="0"/>
+      <stop offset=".62" stop-color="#241815" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#241815" stop-opacity=".72"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="800" fill="url(#bg)"/>
+  <circle cx="950" cy="330" r="360" fill="url(#halo)"/>
+  <g fill="none" stroke="#f2dfbd" stroke-opacity=".11" stroke-width="3">
+    <path d="M-20 585C190 460 345 520 525 425s342-134 525-55 276 86 370 42"/>
+    <path d="M-30 650C210 530 375 600 565 495s355-116 530-28 245 77 340 50"/>
+  </g>
+  <g transform="translate(790 105)">
+    <ellipse cx="205" cy="220" rx="118" ry="136" fill="url(#portrait)"/>
+    <path d="M94 218c7-111 51-176 113-176 61 0 105 66 109 176-34-39-71-61-110-61-42 0-79 20-112 61Z" fill="#4b332c"/>
+    <path d="M105 204c-35 43-50 101-39 158 14-22 29-41 48-57-9-36-12-68-9-101Zm202 0c35 43 50 101 39 158-14-22-29-41-48-57 9-36 12-68 9-101Z" fill="#4b332c"/>
+    <path d="M174 344h62v70h-62z" fill="#c8b59d"/>
+    <path d="M4 650c22-146 101-238 201-238s180 92 201 238Z" fill="#d9c8ad"/>
+    <path d="M42 650c17-111 79-181 163-181s146 70 163 181Z" fill="#60453a"/>
+    <path d="M151 472l54 82 54-82" fill="none" stroke="#d9c8ad" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <circle cx="124" cy="142" r="78" fill="none" stroke="#f1dfbd" stroke-opacity=".13" stroke-width="2"/>
+  <circle cx="124" cy="142" r="45" fill="#f1dfbd" fill-opacity=".07"/>
+  <rect width="1400" height="800" fill="url(#bottomShade)"/>
+</svg>
