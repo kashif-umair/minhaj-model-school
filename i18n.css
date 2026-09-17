@@ -219,25 +219,6 @@ html[dir="rtl"] .modal-body {
     line-height: 2.05;
   }
 
-  /* Scroll the fixed modal viewport itself. This is more reliable on mobile
-     browsers than scrolling a full-height child panel. */
-  .modal {
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .modal-backdrop {
-    position: fixed;
-  }
-
-  .modal-panel {
-    min-height: 100dvh;
-    height: auto;
-    max-height: none;
-    overflow: visible;
-  }
-
   .modal-close {
     width: auto;
     height: auto;
