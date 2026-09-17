@@ -138,6 +138,27 @@ html[dir="rtl"] .modal-body {
     line-height: 1.95;
   }
 
+  /* Gulzar has tall Nastaliq ascenders/descenders. Give the mobile header
+     enough vertical room and do not clip the school name's glyphs. */
+  html[lang="ur"] .nav-wrap {
+    min-height: 86px;
+  }
+
+  html[lang="ur"] .brand-text {
+    overflow: visible;
+    line-height: 1;
+  }
+
+  html[lang="ur"] .brand-text strong {
+    max-width: 210px;
+    overflow: visible;
+    padding-block: 6px 3px;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    text-overflow: clip;
+    white-space: nowrap;
+  }
+
   html[lang="ur"] .hero h1,
   html[lang="ur"] .page-hero h1 {
     font-size: clamp(2.35rem, 11vw, 3.4rem);
