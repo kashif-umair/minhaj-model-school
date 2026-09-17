@@ -1,1 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" role="img" aria-labelledby="title desc"><title id="title">Usman Ali alumni banner</title><desc id="desc">Blue and gold Minhaj Model School alumni poster with a generic profile illustration.</desc><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#425d79"/><stop offset="1" stop-color="#26384f"/></linearGradient><linearGradient id="panel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#536d87"/><stop offset="1" stop-color="#293d55"/></linearGradient></defs><rect width="1400" height="800" fill="url(#bg)"/><circle cx="135" cy="120" r="74" fill="#f5e6bd"/><circle cx="135" cy="120" r="60" fill="#354d68"/><text x="135" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#f5e6bd">MMS</text><text x="700" y="118" text-anchor="middle" font-family="Georgia, serif" font-size="92" font-weight="700" fill="#f5e6bd" letter-spacing="8">ALUMNI</text><text x="700" y="176" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#f5e6bd" letter-spacing="3">MINHAJ MODEL SCHOOL</text><rect x="270" y="225" width="860" height="330" rx="8" fill="#d7d7d7"/><rect x="292" y="247" width="816" height="286" fill="url(#panel)"/><circle cx="700" cy="340" r="78" fill="#f5e6bd"/><path d="M525 505c28-100 94-150 175-150s147 50 175 150" fill="#f5e6bd"/><text x="700" y="468" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#354d68">PROUD ALUMNUS</text><text x="700" y="640" text-anchor="middle" font-family="Arial, sans-serif" font-size="66" font-weight="800" fill="#f5e6bd">USMAN ALI</text><text x="700" y="698" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#f5e6bd">Director of Operations · Crescent Industries</text><text x="700" y="752" text-anchor="middle" font-family="Georgia, serif" font-size="30" font-style="italic" fill="#ead8aa">Proud Alumni of Minhaj Model School</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" role="presentation" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#496783"/>
+      <stop offset="1" stop-color="#27384d"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="42%" r="58%">
+      <stop offset="0" stop-color="#e4d7ba" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#e4d7ba" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="portrait" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9cfbb"/>
+      <stop offset="1" stop-color="#b6aa94"/>
+    </linearGradient>
+    <linearGradient id="bottomShade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#182536" stop-opacity="0"/>
+      <stop offset=".62" stop-color="#182536" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#182536" stop-opacity=".74"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="800" fill="url(#bg)"/>
+  <circle cx="1015" cy="320" r="360" fill="url(#halo)"/>
+  <g fill="none" stroke="#efe3c7" stroke-opacity=".11" stroke-width="3">
+    <path d="M-60 535C170 430 320 510 520 400s365-123 545-28 265 69 380 5"/>
+    <path d="M-35 610C195 500 365 575 560 470s350-102 520-18 255 72 355 30"/>
+  </g>
+  <g transform="translate(825 112)">
+    <ellipse cx="190" cy="214" rx="120" ry="138" fill="url(#portrait)"/>
+    <path d="M75 210c14-106 57-166 117-166 65 0 108 61 113 166-28-38-67-59-113-59-45 0-84 20-117 59Z" fill="#2c4058"/>
+    <path d="M160 341h61v71h-61z" fill="#c3b79f"/>
+    <path d="M-10 646c22-145 100-236 200-236s179 91 201 236Z" fill="#d8cfba"/>
+    <path d="M28 646c18-111 80-182 162-182 84 0 146 71 163 182Z" fill="#39526d"/>
+    <path d="M136 470l54 84 54-84" fill="none" stroke="#d8cfba" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <path d="M112 84h82v82h-82z" fill="none" stroke="#efe3c7" stroke-opacity=".1" stroke-width="2" transform="rotate(12 153 125)"/>
+  <path d="M91 65h124v124H91z" fill="none" stroke="#efe3c7" stroke-opacity=".06" stroke-width="2" transform="rotate(12 153 127)"/>
+  <rect width="1400" height="800" fill="url(#bottomShade)"/>
+</svg>
