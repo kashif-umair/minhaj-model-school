@@ -1,7 +1,5 @@
 const language = document.documentElement.lang === "ur" ? "ur" : "en";
 const alumni = window.MINHAJ_ALUMNI || [];
-const ALUMNI_QUERY_PARAM = "alumni";
-const ALUMNI_HISTORY_STATE_KEY = "minhajAlumniProfile";
 
 const labels = {
   en: {
@@ -63,11 +61,48 @@ function translatedPerson(person) {
   return { ...person, ...person[language] };
 }
 
+function alumniListPath() {
+  const parts = window.location.pathname.split("/").filter(Boolean);
+  const alumniIndex = parts.lastIndexOf("alumni");
+
+  if (alumniIndex === -1) return window.location.pathname;
+  return `/${parts.slice(0, alumniIndex + 1).join("/")}/`;
+}
+
+function alumniIdFromLocation() {
+  const params = new URLSearchParams(window.location.search);
+  const legacyId = params.get("alumni");
+  if (legacyId) return legacyId;
+
+  const parts = window.location.pathname.split("/").filter(Boolean);
+  const alumniIndex = parts.lastIndexOf("alumni");
+  const candidate = alumniIndex >= 0 ? parts[alumniIndex + 1] : null;
+
+  return candidate && alumni.some((person) => person.id === candidate) ? candidate : null;
+}
+
+function alumniProfilePath(id) {
+  return `${alumniListPath()}${encodeURIComponent(id)}/`;
+}
+
+function updateLanguageSwitch(id = null) {
+  const switchLink = document.querySelector("[data-language-switch]");
+  if (!switchLink) return;
+
+  const parts = alumniListPath().split("/").filter(Boolean);
+  const languageIndex = parts.findIndex((part) => part === "ur" || part === "en");
+  if (languageIndex === -1) return;
+
+  parts[languageIndex] = language === "ur" ? "en" : "ur";
+  const otherListPath = `/${parts.join("/")}/`;
+  switchLink.href = id ? `${otherListPath}${encodeURIComponent(id)}/` : otherListPath;
+}
+
 function alumniCardTemplate(person) {
   const translated = translatedPerson(person);
 
   return `
-    <button class="alumni-card" type="button" data-alumni-id="${person.id}" aria-label="${labels.viewProfile} ${translated.name}">
+    <a class="alumni-card" href="${alumniProfilePath(person.id)}" data-alumni-id="${person.id}" aria-label="${labels.viewProfile} ${translated.name}">
       <div class="alumni-photo-wrap">
         <img class="alumni-photo" src="${person.headshot}" alt="${labels.headshotAlt} ${translated.name}" loading="lazy">
       </div>
@@ -78,24 +113,8 @@ function alumniCardTemplate(person) {
         <span class="alumni-school-years">${labels.school} · ${person.years}</span>
       </div>
       <span class="alumni-arrow" aria-hidden="true">→</span>
-    </button>
+    </a>
   `;
-}
-
-function currentAlumniId() {
-  return new URL(window.location.href).searchParams.get(ALUMNI_QUERY_PARAM);
-}
-
-function alumniProfileUrl(id) {
-  const url = new URL(window.location.href);
-  url.searchParams.set(ALUMNI_QUERY_PARAM, id);
-  return `${url.pathname}${url.search}${url.hash}`;
-}
-
-function alumniListUrl() {
-  const url = new URL(window.location.href);
-  url.searchParams.delete(ALUMNI_QUERY_PARAM);
-  return `${url.pathname}${url.search}${url.hash}`;
 }
 
 if (alumniList) {
@@ -106,11 +125,17 @@ if (alumniList) {
     if (!card) return;
 
     const person = alumni.find((item) => item.id === card.dataset.alumniId);
-    if (person) openAlumniModal(person, card);
+    if (!person) return;
+
+    event.preventDefault();
+    lastFocusedElement = card;
+    window.history.pushState({ alumniId: person.id }, "", alumniProfilePath(person.id));
+    openAlumniModal(person, card);
+    updateLanguageSwitch(person.id);
   });
 }
 
-function openAlumniModal(person, trigger = null, { updateHistory = true, focusClose = true } = {}) {
+function openAlumniModal(person, trigger = null) {
   if (!modal) return;
 
   const translated = translatedPerson(person);
@@ -127,79 +152,67 @@ function openAlumniModal(person, trigger = null, { updateHistory = true, focusCl
   modal.querySelector("#modal-years").textContent = person.years;
   modal.querySelector("#modal-description").textContent = translated.description;
 
-  if (updateHistory && currentAlumniId() !== person.id) {
-    const currentState = history.state && typeof history.state === "object" ? history.state : {};
-    history.pushState(
-      { ...currentState, [ALUMNI_HISTORY_STATE_KEY]: true, alumniId: person.id },
-      "",
-      alumniProfileUrl(person.id)
-    );
-  }
-
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
 
-  if (focusClose) {
-    requestAnimationFrame(() => {
-      modal.querySelector(".modal-close")?.focus();
-    });
-  }
+  requestAnimationFrame(() => {
+    modal.querySelector(".modal-close")?.focus();
+  });
 }
 
-function hideAlumniModal() {
+function hideAlumniModal({ restoreFocus = true } = {}) {
   if (!modal || !modal.classList.contains("is-open")) return;
 
   modal.classList.remove("is-open");
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
-  lastFocusedElement?.focus();
+
+  if (restoreFocus) lastFocusedElement?.focus();
 }
 
-function closeAlumniModal({ updateHistory = true } = {}) {
+function closeAlumniModal() {
   if (!modal || !modal.classList.contains("is-open")) return;
 
-  if (updateHistory && currentAlumniId()) {
-    if (history.state?.[ALUMNI_HISTORY_STATE_KEY]) {
-      history.back();
-      return;
-    }
-
-    history.replaceState(history.state, "", alumniListUrl());
+  if (window.history.state?.alumniId) {
+    window.history.back();
+    return;
   }
 
+  window.history.replaceState({}, "", alumniListPath());
   hideAlumniModal();
+  updateLanguageSwitch();
 }
 
-function syncAlumniModalFromUrl() {
-  if (!alumniList || !modal) return;
+function syncAlumniModalWithLocation() {
+  const id = alumniIdFromLocation();
 
-  const alumniId = currentAlumniId();
-
-  if (!alumniId) {
-    hideAlumniModal();
+  if (!id) {
+    hideAlumniModal({ restoreFocus: false });
+    updateLanguageSwitch();
     return;
   }
 
-  const person = alumni.find((item) => item.id === alumniId);
+  const person = alumni.find((item) => item.id === id);
+  if (!person) return;
 
-  if (!person) {
-    history.replaceState(history.state, "", alumniListUrl());
-    hideAlumniModal();
-    return;
-  }
-
-  openAlumniModal(person, null, { updateHistory: false, focusClose: false });
+  openAlumniModal(person);
+  updateLanguageSwitch(id);
 }
 
 modal?.querySelectorAll("[data-close-modal]").forEach((element) => {
-  element.addEventListener("click", () => closeAlumniModal());
+  element.addEventListener("click", closeAlumniModal);
 });
 
-window.addEventListener("popstate", syncAlumniModalFromUrl);
+window.addEventListener("popstate", syncAlumniModalWithLocation);
 
-if (alumniList) {
-  syncAlumniModalFromUrl();
+if (alumniList && modal) {
+  const legacyId = new URLSearchParams(window.location.search).get("alumni");
+  if (legacyId && alumni.some((person) => person.id === legacyId)) {
+    window.history.replaceState({}, "", alumniProfilePath(legacyId));
+  }
+
+  syncAlumniModalWithLocation();
 }
 
 document.addEventListener("keydown", (event) => {
