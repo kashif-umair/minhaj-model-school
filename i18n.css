@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Gulzar&display=swap");
+@import url("./mobile.css");
+
 /* Bilingual layout additions. Keep language-specific presentation here. */
 
 .language-switcher {
@@ -20,7 +23,7 @@
 }
 
 html[lang="ur"] body {
-  font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Segoe UI", serif;
+  font-family: "Gulzar", "Noto Nastaliq Urdu", "Noto Naskh Arabic", serif;
   line-height: 2;
 }
 
@@ -31,8 +34,9 @@ html[lang="ur"] .section h2,
 html[lang="ur"] .value-card h3,
 html[lang="ur"] .alumni-copy h3,
 html[lang="ur"] .modal-title-block h2,
-html[lang="ur"] .modal-story h3 {
-  font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", serif;
+html[lang="ur"] .modal-story h3,
+html[lang="ur"] .footer-wrap strong {
+  font-family: "Gulzar", "Noto Nastaliq Urdu", "Noto Naskh Arabic", serif;
   letter-spacing: 0;
 }
 
@@ -43,7 +47,9 @@ html[lang="ur"] .brand-text {
 html[lang="ur"] .brand-text small,
 html[lang="ur"] .eyebrow,
 html[lang="ur"] .section-kicker,
-html[lang="ur"] .modal-label {
+html[lang="ur"] .modal-label,
+html[lang="ur"] .alumni-school-years,
+html[lang="ur"] .profile-facts span {
   letter-spacing: 0;
   text-transform: none;
 }
@@ -51,7 +57,7 @@ html[lang="ur"] .modal-label {
 html[lang="ur"] .hero h1,
 html[lang="ur"] .page-hero h1,
 html[lang="ur"] .section h2 {
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 html[lang="ur"] .hero-copy,
@@ -61,8 +67,9 @@ html[lang="ur"] .alumni-intro > p:last-child,
 html[lang="ur"] .alumni-summary,
 html[lang="ur"] .modal-story p,
 html[lang="ur"] .value-card p,
-html[lang="ur"] .legacy-content p:not(.section-kicker) {
-  line-height: 2.1;
+html[lang="ur"] .legacy-content p:not(.section-kicker),
+html[lang="ur"] .footer-wrap p {
+  line-height: 2;
 }
 
 html[dir="rtl"] .hero-overlay {
@@ -76,6 +83,8 @@ html[dir="rtl"] .alumni-card {
 }
 
 html[dir="rtl"] .alumni-arrow {
+  margin-right: 0;
+  margin-left: 10px;
   transform: scaleX(-1);
 }
 
@@ -114,7 +123,7 @@ html[dir="rtl"] .modal-body {
   text-align: right;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 767px) {
   .language-switcher {
     width: 100%;
     justify-content: center;
@@ -124,8 +133,36 @@ html[dir="rtl"] .modal-body {
     border-top: 1px solid rgba(16, 35, 31, 0.1);
   }
 
+  html[lang="ur"] body {
+    font-size: 17px;
+    line-height: 1.95;
+  }
+
   html[lang="ur"] .hero h1,
   html[lang="ur"] .page-hero h1 {
-    font-size: clamp(2.7rem, 12vw, 4.7rem);
+    font-size: clamp(2.35rem, 11vw, 3.4rem);
+    line-height: 1.55;
+  }
+
+  html[lang="ur"] .section h2 {
+    font-size: clamp(2.05rem, 9.5vw, 3rem);
+    line-height: 1.55;
+  }
+
+  html[lang="ur"] .alumni-copy h3 {
+    font-size: 1.9rem;
+    line-height: 1.5;
+  }
+
+  html[lang="ur"] .hero-copy,
+  html[lang="ur"] .story-copy,
+  html[lang="ur"] .page-hero p:last-child,
+  html[lang="ur"] .alumni-intro > p:last-child,
+  html[lang="ur"] .alumni-summary,
+  html[lang="ur"] .modal-story p,
+  html[lang="ur"] .value-card p,
+  html[lang="ur"] .legacy-content p:not(.section-kicker),
+  html[lang="ur"] .footer-wrap p {
+    line-height: 2.05;
   }
 }
