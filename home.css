@@ -1,0 +1,187 @@
+/* Homepage hero and automatic education slider. */
+
+.hero {
+  min-height: 0;
+  display: block;
+  overflow: hidden;
+  background: var(--green-dark);
+  color: var(--white);
+}
+
+.hero-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  min-height: 680px;
+}
+
+.hero-copy-panel {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 72px clamp(36px, 5vw, 84px);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(211, 166, 76, 0.16), transparent 28%),
+    linear-gradient(145deg, #0b4f4a 0%, #0b403c 100%);
+}
+
+.hero-school-name {
+  margin: 0 0 28px;
+  color: #f6d995;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 3.2vw, 3.7rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.hero-copy-panel h1 {
+  max-width: 700px;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 5.2vw, 5.8rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.hero-copy {
+  max-width: 620px;
+  margin: 24px 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 19px;
+}
+
+.hero-actions {
+  margin-top: 34px;
+}
+
+.hero-slider {
+  position: relative;
+  min-height: 680px;
+  overflow: hidden;
+  background: #dceae5;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.025);
+  transition: opacity 900ms ease, transform 5.8s ease;
+  pointer-events: none;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-slider::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: inset 20px 0 45px rgba(11, 79, 74, 0.08);
+}
+
+html[lang="ur"] .hero-school-name,
+html[lang="ur"] .hero-copy-panel h1 {
+  font-family: "Gulzar", "Noto Nastaliq Urdu", "Noto Naskh Arabic", serif;
+  letter-spacing: 0;
+}
+
+html[lang="ur"] .hero-school-name {
+  font-size: clamp(2.6rem, 4vw, 4.5rem);
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+
+html[lang="ur"] .hero-copy-panel h1 {
+  font-size: clamp(3rem, 4.9vw, 5.4rem);
+  line-height: 1.65;
+}
+
+html[lang="ur"] .hero-copy {
+  line-height: 2.15;
+}
+
+html[dir="rtl"] .hero-slider::after {
+  box-shadow: inset -20px 0 45px rgba(11, 79, 74, 0.08);
+}
+
+@media (max-width: 767px) {
+  .hero-shell {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .hero-copy-panel {
+    order: 1;
+    min-height: 0;
+    justify-content: flex-start;
+    padding: 34px 20px 40px;
+  }
+
+  .hero-school-name {
+    margin-bottom: 18px;
+    font-size: clamp(2.25rem, 10vw, 3.2rem);
+  }
+
+  .hero-copy-panel h1 {
+    font-size: clamp(2.65rem, 12.5vw, 4rem);
+    line-height: 1.03;
+  }
+
+  .hero-copy {
+    margin-top: 18px;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .hero-actions {
+    display: grid;
+    gap: 12px;
+    margin-top: 26px;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .hero-slider {
+    order: 2;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  .hero-slider::after {
+    box-shadow: inset 0 18px 38px rgba(11, 79, 74, 0.08);
+  }
+
+  html[lang="ur"] .hero-school-name {
+    margin-bottom: 12px;
+    font-size: clamp(2.7rem, 13vw, 4.1rem);
+    line-height: 1.45;
+  }
+
+  html[lang="ur"] .hero-copy-panel h1 {
+    font-size: clamp(2.75rem, 12.5vw, 4rem);
+    line-height: 1.6;
+  }
+
+  html[lang="ur"] .hero-copy {
+    margin-top: 14px;
+    font-size: 16px;
+    line-height: 2.05;
+  }
+}
