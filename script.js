@@ -5,15 +5,15 @@ const labels = {
   en: {
     school: "Minhaj Model School",
     viewProfile: "View profile for",
-    headshotAlt: "Placeholder headshot for",
-    bannerAlt: "Placeholder banner for",
+    headshotAlt: "Profile illustration for",
+    bannerAlt: "Alumni banner for",
     roleSeparator: " at "
   },
   ur: {
     school: "منہاج ماڈل اسکول",
     viewProfile: "پروفائل دیکھیں:",
-    headshotAlt: "نمونہ پروفائل تصویر:",
-    bannerAlt: "نمونہ بینر تصویر:",
+    headshotAlt: "پروفائل تصویر:",
+    bannerAlt: "سابق طالب علم کا بینر:",
     roleSeparator: "، "
   }
 }[language];
@@ -61,6 +61,19 @@ function translatedPerson(person) {
   return { ...person, ...person[language] };
 }
 
+function siteRootPath() {
+  const parts = window.location.pathname.split("/").filter(Boolean);
+  const languageIndex = parts.findIndex((part) => part === "ur" || part === "en");
+
+  if (languageIndex === -1) return "/";
+  const rootParts = parts.slice(0, languageIndex);
+  return rootParts.length ? `/${rootParts.join("/")}/` : "/";
+}
+
+function assetPath(path) {
+  return `${siteRootPath()}${path.replace(/^\/+/, "")}`;
+}
+
 function alumniListPath() {
   const parts = window.location.pathname.split("/").filter(Boolean);
   const alumniIndex = parts.lastIndexOf("alumni");
@@ -104,7 +117,7 @@ function alumniCardTemplate(person) {
   return `
     <a class="alumni-card" href="${alumniProfilePath(person.id)}" data-alumni-id="${person.id}" aria-label="${labels.viewProfile} ${translated.name}">
       <div class="alumni-photo-wrap">
-        <img class="alumni-photo" src="${person.headshot}" alt="${labels.headshotAlt} ${translated.name}" loading="lazy">
+        <img class="alumni-photo" src="${assetPath(person.headshot)}" alt="${labels.headshotAlt} ${translated.name}" loading="lazy">
       </div>
       <div class="alumni-copy">
         <h3>${translated.name}</h3>
@@ -142,7 +155,7 @@ function openAlumniModal(person, trigger = null) {
   if (trigger) lastFocusedElement = trigger;
 
   const banner = modal.querySelector("#modal-banner");
-  banner.src = person.banner;
+  banner.src = assetPath(person.banner);
   banner.alt = `${labels.bannerAlt} ${translated.name}`;
 
   modal.querySelector("#modal-name").textContent = translated.name;
