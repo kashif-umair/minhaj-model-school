@@ -1,0 +1,109 @@
+/* Homepage alumni carousel. Loaded after home.css so it can override the static grid. */
+
+.featured-alumni-grid.alumni-carousel {
+  display: block;
+  overflow: visible;
+}
+
+.alumni-carousel-viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.alumni-carousel-track {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  direction: ltr;
+  will-change: transform;
+}
+
+.alumni-carousel-track .featured-alumni-card {
+  flex: 0 0 calc((100% - 48px) / 3);
+  min-width: 0;
+  direction: ltr;
+}
+
+html[dir="rtl"] .alumni-carousel-track .featured-alumni-card {
+  direction: rtl;
+  text-align: right;
+}
+
+.alumni-carousel-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+html[dir="rtl"] .alumni-carousel-controls {
+  justify-content: flex-start;
+}
+
+.alumni-carousel-button {
+  width: 50px;
+  height: 50px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(16, 35, 31, 0.14);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--green-dark);
+  box-shadow: 0 8px 24px rgba(16, 35, 31, 0.07);
+  font-size: 23px;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.alumni-carousel-button:hover,
+.alumni-carousel-button:focus-visible {
+  border-color: var(--green-dark);
+  background: var(--green-dark);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.alumni-carousel-button:focus-visible {
+  outline: 3px solid rgba(15, 118, 110, 0.2);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1024px) {
+  .alumni-carousel-track {
+    gap: 18px;
+  }
+
+  .alumni-carousel-track .featured-alumni-card {
+    flex-basis: calc((100% - 18px) / 2);
+  }
+}
+
+@media (max-width: 767px) {
+  .alumni-carousel-track {
+    gap: 16px;
+  }
+
+  .alumni-carousel-track .featured-alumni-card {
+    flex-basis: 100%;
+  }
+
+  .alumni-carousel-controls {
+    margin-top: 22px;
+  }
+
+  .alumni-carousel-button {
+    width: 46px;
+    height: 46px;
+    font-size: 21px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alumni-carousel-track,
+  .alumni-carousel-button {
+    transition: none !important;
+  }
+}
