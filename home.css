@@ -1,4 +1,4 @@
-/* Homepage hero and automatic education slider. */
+/* Homepage hero with the school photo as a full-bleed background. */
 
 .hero {
   min-height: 0;
@@ -9,79 +9,71 @@
 }
 
 .hero-shell {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  min-height: 680px;
+  position: relative;
+  min-height: 700px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.hero-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(4, 29, 27, 0.02) 0%, rgba(4, 29, 27, 0.08) 36%, rgba(4, 29, 27, 0.42) 66%, rgba(4, 29, 27, 0.86) 100%),
+    linear-gradient(90deg, rgba(4, 29, 27, 0.5) 0%, rgba(4, 29, 27, 0.18) 48%, rgba(4, 29, 27, 0.04) 76%);
+}
+
+html[dir="rtl"] .hero-shell::after {
+  background:
+    linear-gradient(180deg, rgba(4, 29, 27, 0.02) 0%, rgba(4, 29, 27, 0.08) 36%, rgba(4, 29, 27, 0.42) 66%, rgba(4, 29, 27, 0.86) 100%),
+    linear-gradient(270deg, rgba(4, 29, 27, 0.5) 0%, rgba(4, 29, 27, 0.18) 48%, rgba(4, 29, 27, 0.04) 76%);
 }
 
 .hero-copy-panel {
   position: relative;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 72px clamp(36px, 5vw, 84px);
-  background:
-    radial-gradient(circle at 15% 10%, rgba(211, 166, 76, 0.16), transparent 28%),
-    linear-gradient(145deg, #0b4f4a 0%, #0b403c 100%);
+  width: min(calc(100% - 40px), var(--container));
+  margin-inline: auto;
+  padding: 86px 0 74px;
+  background: transparent;
 }
 
 .hero-copy-panel h1 {
-  max-width: 700px;
+  max-width: 760px;
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(3rem, 5.2vw, 5.8rem);
   font-weight: 700;
   line-height: 1.02;
   letter-spacing: -0.03em;
+  text-shadow: 0 3px 24px rgba(0, 0, 0, 0.24);
 }
 
 .hero-copy {
   max-width: 620px;
   margin: 24px 0 0;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 19px;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
 }
 
 .hero-actions {
   margin-top: 34px;
-}
-
-.hero-slider {
-  position: relative;
-  min-height: 680px;
-  overflow: hidden;
-  background: #dceae5;
-}
-
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transform: scale(1.025);
-  transition: opacity 900ms ease, transform 5.8s ease;
-  pointer-events: none;
-}
-
-.hero-slide.is-active {
-  opacity: 1;
-  transform: scale(1);
-  z-index: 1;
-}
-
-.hero-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-slider::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  box-shadow: inset 20px 0 45px rgba(11, 79, 74, 0.08);
 }
 
 html[lang="ur"] .hero-copy-panel h1 {
@@ -95,57 +87,30 @@ html[lang="ur"] .hero-copy {
   line-height: 2.15;
 }
 
-html[dir="rtl"] .hero-slider::after {
-  box-shadow: inset -20px 0 45px rgba(11, 79, 74, 0.08);
-}
-
 @media (max-width: 767px) {
-  .hero {
-    min-height: 0;
-  }
-
-  /* On phones the artwork and copy are one compact visual, not stacked sections. */
   .hero-shell {
-    position: relative;
-    display: block;
-    min-height: 560px;
+    min-height: 570px;
   }
 
-  .hero-slider {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    min-height: 0;
-    height: 100%;
-    aspect-ratio: auto;
+  .hero-background {
+    object-position: 28% center;
   }
 
-  .hero-slide img {
-    object-position: center center;
-  }
-
-  /* Keep the artwork visible through the lower text area. */
-  .hero-slider::after,
-  html[dir="rtl"] .hero-slider::after {
-    box-shadow: none;
+  .hero-shell::after,
+  html[dir="rtl"] .hero-shell::after {
     background: linear-gradient(
       180deg,
-      rgba(5, 36, 32, 0) 0%,
-      rgba(5, 36, 32, 0.04) 32%,
-      rgba(5, 36, 32, 0.28) 48%,
-      rgba(5, 36, 32, 0.58) 64%,
-      rgba(5, 36, 32, 0.78) 100%
+      rgba(5, 36, 32, 0.02) 0%,
+      rgba(5, 36, 32, 0.08) 30%,
+      rgba(5, 36, 32, 0.34) 51%,
+      rgba(5, 36, 32, 0.72) 70%,
+      rgba(5, 36, 32, 0.92) 100%
     );
   }
 
   .hero-copy-panel {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    min-height: 0;
-    justify-content: flex-end;
-    padding: 195px 18px 22px;
-    background: transparent;
+    width: calc(100% - 36px);
+    padding: 210px 0 22px;
   }
 
   .hero-copy-panel h1 {
@@ -157,7 +122,7 @@ html[dir="rtl"] .hero-slider::after {
   .hero-copy {
     max-width: 100%;
     margin-top: 8px;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.94);
     font-size: 14px;
     line-height: 1.55;
   }
@@ -188,11 +153,13 @@ html[dir="rtl"] .hero-slider::after {
 
 @media (max-width: 390px) {
   .hero-shell {
-    min-height: 535px;
+    min-height: 545px;
   }
 
   .hero-copy-panel {
-    padding: 180px 15px 18px;
+    width: calc(100% - 30px);
+    padding-top: 190px;
+    padding-bottom: 18px;
   }
 
   html[lang="ur"] .hero-copy-panel h1 {
