@@ -472,10 +472,6 @@ html[dir="rtl"] .story-badge {
   font-weight: 900;
 }
 
-html[dir="rtl"] .featured-alumni-link span {
-  transform: scaleX(-1);
-}
-
 .final-cta-section {
   padding-top: 0;
   padding-bottom: 124px;
