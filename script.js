@@ -5,6 +5,7 @@ const labels = {
   en: {
     school: "Minhaj Model School",
     viewProfile: "View profile for",
+    viewStory: "View story",
     headshotAlt: "Profile illustration for",
     bannerAlt: "Alumni banner for",
     roleSeparator: " at "
@@ -12,6 +13,7 @@ const labels = {
   ur: {
     school: "منہاج ماڈل اسکول",
     viewProfile: "پروفائل دیکھیں:",
+    viewStory: "کہانی دیکھیں",
     headshotAlt: "پروفائل تصویر:",
     bannerAlt: "سابق طالب علم کا بینر:",
     roleSeparator: "، "
@@ -128,6 +130,30 @@ function alumniCardTemplate(person) {
       <span class="alumni-arrow" aria-hidden="true">→</span>
     </a>
   `;
+}
+
+function featuredAlumniCardTemplate(person, index) {
+  const translated = translatedPerson(person);
+  const arrow = language === "ur" ? "←" : "→";
+
+  return `
+    <a class="featured-alumni-card" href="alumni/${encodeURIComponent(person.id)}/" aria-label="${labels.viewProfile} ${translated.name}" data-reveal style="--reveal-delay: ${index * 100}ms">
+      <div class="featured-alumni-photo">
+        <img src="${assetPath(person.headshot)}" alt="${labels.headshotAlt} ${translated.name}" loading="lazy">
+      </div>
+      <div class="featured-alumni-copy">
+        <span class="featured-alumni-years">${labels.school} · ${person.years}</span>
+        <h3>${translated.name}</h3>
+        <p class="featured-alumni-role">${translated.designation} · ${translated.company}</p>
+        <span class="featured-alumni-link">${labels.viewStory} <span aria-hidden="true">${arrow}</span></span>
+      </div>
+    </a>
+  `;
+}
+
+const featuredAlumniGrid = document.querySelector("[data-featured-alumni]");
+if (featuredAlumniGrid && alumni.length) {
+  featuredAlumniGrid.innerHTML = alumni.slice(0, 3).map(featuredAlumniCardTemplate).join("");
 }
 
 if (alumniList) {
@@ -253,3 +279,30 @@ document.addEventListener("keydown", (event) => {
     first.focus();
   }
 });
+
+function setupRevealAnimations() {
+  const revealItems = Array.from(document.querySelectorAll("[data-reveal]"));
+  if (!revealItems.length) return;
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
+
+  document.body.classList.add("reveal-ready");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: "0px 0px -8% 0px"
+  });
+
+  revealItems.forEach((item) => observer.observe(item));
+}
+
+setupRevealAnimations();
